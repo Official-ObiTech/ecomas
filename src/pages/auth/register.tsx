@@ -14,7 +14,11 @@ export default function RegisterPage() {
   async function handleRegister() {
     setError("");
     try {
-      await fetchClient("/api/auth/register", { method: "POST", body: { name, email, password } });
+   await fetchClient("/api/auth/register", {
+  method: "POST",
+  body: { name, email, password },
+  notifyError: true,
+});
       const res = await signIn("credentials", { email, password, redirect: false });
       if (res?.error) setError("Registered, but sign-in failed");
       else router.push("/");
