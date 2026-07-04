@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
     // strips ALL console.* from production builds; local dev keeps them
     removeConsole: process.env.NODE_ENV === "production",
   },
+
+   images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "res.cloudinary.com" },
+    ],
+  },
+
+  
 };
 
 export default nextConfig;
