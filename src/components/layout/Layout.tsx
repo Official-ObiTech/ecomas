@@ -1,16 +1,15 @@
 import { ReactNode } from "react";
-import { siteConfig } from "@/config/site";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import CartDrawer from "@/components/cart/CartDrawer";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="border-b px-6 py-4">
-        <span className="font-semibold">{siteConfig.name}</span>
-      </header>
+    <div className="flex min-h-screen flex-col bg-surface">
+      <Navbar />
       <main className="flex-1">{children}</main>
-      <footer className="border-t px-6 py-6 text-sm text-neutral-500">
-        © {new Date().getFullYear()} {siteConfig.name}
-      </footer>
+      <Footer />
+      <CartDrawer />
     </div>
   );
 }

@@ -1,13 +1,20 @@
 import { Layout } from "@/components/layout/Layout";
 import { Seo } from "@/components/seo/Seo";
+import { Hero } from "@/components/home/Hero";
+import { ProductRow } from "@/components/home/ProductRow";
+import { ProductTabs } from "@/components/home/ProductTabs";
+import { EditorialBand } from "@/components/home/EditorialBand";
+import { FeatureStrip } from "@/components/home/FeatureStrip";
 
 export default function Home() {
   return (
     <Layout>
-      <Seo title="Home" />
-      <section className="px-6 py-20 text-center">
-        <h1 className="text-3xl text-white font-bold">Ecomas foundation is live 🎉</h1>
-      </section>
+      <Seo />
+      <Hero />
+      <ProductRow title="Latest Arrivals" limit={4} />
+      <ProductTabs />
+      <EditorialBand />
+      <FeatureStrip />
     </Layout>
   );
 }
