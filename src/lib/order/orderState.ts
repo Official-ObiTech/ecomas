@@ -15,3 +15,8 @@ export const ORDER_TRANSITIONS: Record<OrderStatus, OrderStatus[]> = {
 export function canTransition(from: OrderStatus, to: OrderStatus): boolean {
   return ORDER_TRANSITIONS[from]?.includes(to) ?? false;
 }
+
+// next states an admin may pick from, given the current one
+export function nextStates(current: OrderStatus): OrderStatus[] {
+  return ORDER_TRANSITIONS[current] ?? [];
+}
