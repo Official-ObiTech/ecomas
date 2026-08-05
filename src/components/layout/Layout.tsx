@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import CartDrawer from "@/components/cart/CartDrawer";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import CartDrawer from "../cart/CartDrawer";
+
 
 export function Layout({ children }: { children: ReactNode }) {
   return (

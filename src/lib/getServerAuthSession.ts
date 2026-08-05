@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth/next";
 import type { GetServerSidePropsContext } from "next";
-import { authOptions } from "@/lib/auth";
+import { authOptions } from "@/lib/auth/auth";
 
 export function getServerAuthSession(ctx: {
   req: GetServerSidePropsContext["req"];

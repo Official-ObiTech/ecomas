@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { requireAdmin } from "@/lib/apiAuth";
+import { requireAdmin } from "@/lib/auth/apiAuth";
 import { ok, fail } from "@/lib/apiResponse";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

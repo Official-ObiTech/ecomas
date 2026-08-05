@@ -24,6 +24,11 @@ const providers: NextAuthOptions["providers"] = [
       const valid = await bcrypt.compare(credentials.password, user.password);
       if (!valid) return null;
 
+      // block unverified accounts — must be INSIDE authorize, where `user` exists
+      if (!user.emailVerified) {
+        throw new Error("EMAIL_NOT_VERIFIED");
+      }
+
       return {
         id: user.id,
         name: user.name,
@@ -56,7 +61,7 @@ if (process.env.FACEBOOK_CLIENT_ID && process.env.FACEBOOK_CLIENT_SECRET) {
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers,
-  session: { strategy: "jwt" }, // required for the credentials provider
+  session: { strategy: "jwt" },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/auth/login",

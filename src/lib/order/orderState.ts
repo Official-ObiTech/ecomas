@@ -1,4 +1,5 @@
-import { OrderStatus } from "@/generated/prisma";
+import { OrderStatus } from "@prisma/client";
+
 
 
 // which statuses each status is allowed to move to

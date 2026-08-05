@@ -76,3 +76,14 @@ export function adminNewOrderAlert(order: EmailOrder) {
     `),
   };
 }
+
+export function otpEmail(code: string) {
+  return {
+    subject: `Your ${siteConfig.name} verification code`,
+    html: shell(`
+      <p style="margin:0 0 16px;">Use this code to verify your email. It expires in 10 minutes.</p>
+      <p style="font-size:34px;font-weight:700;letter-spacing:10px;margin:0 0 16px;color:#111;">${code}</p>
+      <p style="font-size:13px;color:#888;">If you didn't request this, you can ignore this email.</p>
+    `),
+  };
+}

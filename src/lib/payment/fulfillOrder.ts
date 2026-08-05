@@ -1,7 +1,7 @@
 
-import { PaymentStatus, Prisma } from "@/generated/prisma";
 import { prisma } from "@/lib/prisma";
 import { sendOrderPaidEmails } from "@/lib/email/orderEmails";
+import { PaymentStatus, Prisma } from "@prisma/client";
 
 
 type VerifiedPayment = {
